@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenny, mi niña ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap');
+        
+        body {
+            text-align: center;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #d6336c;
+            font-size: 36px;
+            animation: fadeIn 2s;
+        }
+        p {
+            font-size: 20px;
+            color: #555;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #e63956;
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .heart-animation {
+            position: fixed;
+            top: -50px;
+            left: 50%;
+            font-size: 24px;
+            color: red;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        .decorative-elements {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .decorative-elements img {
+            position: absolute;
+            width: 100px;
+            opacity: 0.8;
+            animation: float 4s infinite ease-in-out;
+        }
+        .flower1 { top: -20px; left: -30px; }
+        .flower2 { top: -20px; right: -30px; transform: rotate(180deg); }
+        .heart1 { bottom: -20px; left: -30px; }
+        .heart2 { bottom: -20px; right: -30px; transform: rotate(180deg); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decorative-elements">
+            <img class="heart1" src="https://pngimg.com/uploads/heart/heart_PNG51335.png" alt="Corazón">
+            <img class="heart2" src="https://pngimg.com/uploads/heart/heart_PNG51335.png" alt="Corazón">
+        </div>
+        <h1>Jenny, mi niña ❤️</h1>
+        <p>Desde la distancia, quiero preguntarte algo muy especial...</p>
+        
+        <h2>¿Puedo ser su novio?</h2>
+        
+        <div class="buttons">
+            <button onclick="responder('Sí')">¡Sí, quiero! 💖</button>
+            <button onclick="responder('No')">No 😢</button>
+        </div>
+    </div>
+
+    <script>
+        function responder(respuesta) {
+            if (respuesta === 'Sí') {
+                alert('¡Me haces el chico más feliz del mundo! 😍');
+            } else {
+                alert('Oh no... 💔');
+            }
+        }
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-animation');
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            heart.innerHTML = "❤️";
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
